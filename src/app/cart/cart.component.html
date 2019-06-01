@@ -1,0 +1,40 @@
+<table class="table table-stripped "> 
+    <thead>
+        <th> NO </th>
+      <th> BOOK </th>
+      <th>QUANTITY</th>
+      <th>PRICE</th>
+      <th>SUB TOTAL</th>
+      <th><a class="btn" role="button" (click)="clearCart()"> <b>CLEAR CART</b> </a></th>
+    </thead>
+    <tr *ngFor="let book of BooksList  let i= index">
+      <td> {{i}}</td>
+    <td> {{book.name}}</td>
+    <td>{{book.quantity}}</td>
+    <td>{{book.price}}</td>
+    <td>{{book.subtotal}}</td>
+    <td><a class="btn" role="button" (click)="removeBook()"> <b>Remove</b> </a></td>
+  </tr>
+    
+  </table>
+
+
+  <div class="container " style="align-content: center">
+      <div class=" d-flex justify-content-center ">
+          <button class="px-2" role="button"><b>UPDATE</b></button> 
+          <a routerLink="/" class="px-2" role="button"><b>Continue Shopping</b></a> 
+          <a routerLink="/checkout" class="px-2" role="button"><b>Check Out</b></a> 
+      </div>
+  </div>
+  
+  <div *ngIf="isUpdate">
+    --------------UPDATE-------------------------------
+  <form #updateForm="ngForm" (ngSubmit)="updateData(updateForm.value)">
+    
+  PRODUCTID<input type="number" name="id" ngModel={{cart.productId}} disabled><br>
+  PRODUCTNAME<input type="text" name="title" ngModel={{cart.productName}} disabled><br>
+  PRODUCTPRICE<input type="number" name="year" ngModel={{cart.productPrice}} disabled><br>
+  PRODUCTQUANTITY<input type="text" name="author" ngModel={{cart.productQuantity}}><br>
+  <button type="submit" class="btn btn-success">update</button>
+  </form>
+  </div>

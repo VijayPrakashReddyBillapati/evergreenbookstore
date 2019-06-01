@@ -1,0 +1,66 @@
+<table class="table table-stripped "> 
+    <thead>
+        <th> NO </th>
+      <th> BOOK </th>
+      <th>QUANTITY</th>
+      <th>PRICE</th>
+      <th>SUB TOTAL</th>
+    </thead>
+    <tr *ngFor="let book of BooksList  let i= index">
+      <td> {{i}}</td>
+    <td> {{book.name}}</td>
+    <td>{{book.quantity}}</td>
+    <td>{{book.price}}</td>
+    <td>{{book.subtotal}}</td>
+  </tr>
+    
+  </table>
+<div>
+    <form class="form-horizontal" role="form" #user="ngForm" (ngSubmit)="register(user.value)">
+      <h2>Your Shipping Information</h2>
+      <div class="form-group">
+          <label for="name" class="col-sm-3 control-label">Recipient Name</label>
+          <div class="col-sm-9">
+              <input type="text" name="name" placeholder="Full Name" class="form-control" autofocus ngModel>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
+          <div class="col-sm-9">
+              <input type="phoneNumber" name="phoneNumber" placeholder="Phone number" class="form-control" ngModel>
+
+          </div>
+      </div>
+      <div class="form-group">
+              <label for="address" class="col-sm-3 control-label"> Street Address </label>
+          <div class="col-sm-9">
+              <input type="text" name="address" placeholder="address"  class="form-control" ngModel>
+          </div>
+      </div>
+       <div class="form-group">
+              <label for="city" class="col-sm-3 control-label">City </label>
+          <div class="col-sm-9">
+              <input type="text" name="city" placeholder="city" class="form-control" ngModel>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="zip" class="col-sm-3 control-label">ZIP Code</label>
+      <div class="col-sm-9">
+          <input type="number" name="zip" placeholder="pin code" class="form-control" ngModel>
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="country" class="col-sm-3 control-label">Country </label>
+  <div class="col-sm-9">
+      <input type="text" name="country" placeholder="country" class="form-control" ngModel>
+  </div>
+</div>
+<div class=" d-flex justify-content-center "> 
+    <button type="submit" class="btn btn-primary">Place Order</button> 
+</div>
+      
+      <div class=" float-right "> 
+          <a routerLink="/" class="px-2" role="button"><b>Continue Shopping</b></a> 
+      </div>
+  </form> <!-- /form -->
+</div>
